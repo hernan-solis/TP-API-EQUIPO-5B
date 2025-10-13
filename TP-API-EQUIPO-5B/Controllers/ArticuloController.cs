@@ -24,7 +24,7 @@ namespace TP_API_EQUIPO_5B.Controllers
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             List<Articulo> lista = negocio.listar();
-            return lista.Find(x=> x.Id == id);
+            return lista.Find(x => x.Id == id);
         }
 
         // POST: api/Articulo
