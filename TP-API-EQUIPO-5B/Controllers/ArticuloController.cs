@@ -91,7 +91,8 @@ namespace TP_API_EQUIPO_5B.Controllers
         // DELETE: api/Articulo/5
         public void Delete(int id)
         {
-            
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            negocio.eliminar(id);
         }
     }
 }
