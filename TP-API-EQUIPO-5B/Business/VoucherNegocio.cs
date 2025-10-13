@@ -1,12 +1,12 @@
-﻿using dominio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
+using Models;
 
-namespace negocio
+namespace Business
 {
     public class VoucherNegocio
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace dominio
+namespace Models
 {
     public class Articulo
     {
