@@ -73,26 +73,45 @@ namespace TP_API_EQUIPO_5B.Controllers
         // PUT: api/Articulo/5
         public void Put(int id, [FromBody]ArticuloDto articulo)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo nuevo = new Articulo();
-            nuevo.Codigo = articulo.Codigo;
-            nuevo.Nombre = articulo.Nombre;
-            nuevo.Descripcion = articulo.Descripcion;
-            nuevo.Marca = new Marca { Id = articulo.IdMarca };
-            nuevo.Categoria = new Categoria { Id = articulo.IdCategoria };
-            //tengo dudas con esto, a chequear
-            nuevo.Imagenes = new List<Imagen>();
-            nuevo.Id = id;
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Articulo nuevo = new Articulo();
+                nuevo.Codigo = articulo.Codigo;
+                nuevo.Nombre = articulo.Nombre;
+                nuevo.Descripcion = articulo.Descripcion;
+                nuevo.Marca = new Marca { Id = articulo.IdMarca };
+                nuevo.Categoria = new Categoria { Id = articulo.IdCategoria };
+                //tengo dudas con esto, a chequear
+                nuevo.Imagenes = new List<Imagen>();
+                nuevo.Id = id;
 
-            negocio.modificar(nuevo);
+                negocio.modificar(nuevo);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
 
         }
 
         // DELETE: api/Articulo/5
         public void Delete(int id)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            negocio.eliminar(id);
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                negocio.eliminar(id);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }
