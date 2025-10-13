@@ -16,6 +16,7 @@ namespace TP_API_EQUIPO_5B.Controllers
         // GET: api/Categoria
         public IEnumerable<Categoria> Get()
         {
+            // prueba, funciona ok
             CategoriaNegocio negocio = new CategoriaNegocio();
             return negocio.listar();
         }
