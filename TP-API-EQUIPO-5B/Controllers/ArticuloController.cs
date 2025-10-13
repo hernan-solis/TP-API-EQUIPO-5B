@@ -71,11 +71,21 @@ namespace TP_API_EQUIPO_5B.Controllers
         }
 
         // PUT: api/Articulo/5
-        public void Put(int id, [FromBody]ArticuloDto articulo)
+        public HttpResponseMessage Put(int id, [FromBody]ArticuloDto articulo)
         {
             try
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
+                List<Articulo> listaArticulos = negocio.listar();
+
+                Articulo articuloExistente = listaArticulos.Find(x => x.Id == id);
+
+                if (articuloExistente == null)
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "El articulo no existe.");
+
+ 
+
+
                 Articulo nuevo = new Articulo();
                 nuevo.Codigo = articulo.Codigo;
                 nuevo.Nombre = articulo.Nombre;
@@ -87,13 +97,16 @@ namespace TP_API_EQUIPO_5B.Controllers
                 nuevo.Id = id;
 
                 negocio.modificar(nuevo);
+                return Request.CreateResponse(HttpStatusCode.OK, "Articulo modificado correctamente.");
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Ocurrió un error inesperado.");
+
             }
-           
+
 
         }
 
