@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Business;
 using Models;
+using TP_API_EQUIPO_5B.Models;
 
 namespace TP_API_EQUIPO_5B.Controllers
 {
@@ -19,14 +20,29 @@ namespace TP_API_EQUIPO_5B.Controllers
         }
 
         // GET: api/Articulo/5
-        public string Get(int id)
+        public Articulo Get(int id)
         {
-            return "value";
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            List<Articulo> lista = negocio.listar();
+            return lista.Find(x=> x.Id == id);
         }
 
         // POST: api/Articulo
-        public void Post([FromBody]string value)
+        public void Post([FromBody]ArticuloDto articulo)
         {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo nuevo = new Articulo();
+            nuevo.Codigo = articulo.Codigo;
+            nuevo.Nombre = articulo.Nombre;
+            nuevo.Descripcion = articulo.Descripcion;
+            nuevo.Marca = new Marca { Id= articulo.IdMarca};
+            nuevo.Categoria = new Categoria { Id= articulo.IdCategoria};
+
+            //tengo dudas con esto, a chequear
+            nuevo.Imagenes = new List<Imagen>();
+
+
+            negocio.agregar(nuevo);
         }
 
         // PUT: api/Articulo/5
