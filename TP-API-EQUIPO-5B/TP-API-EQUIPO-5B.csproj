@@ -162,6 +162,7 @@
     <Compile Include="Business\ImagenNegocio.cs" />
     <Compile Include="Business\MarcaNegocio.cs" />
     <Compile Include="Business\VoucherNegocio.cs" />
+    <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
