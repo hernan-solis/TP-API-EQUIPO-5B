@@ -163,9 +163,8 @@
     <Compile Include="Business\MarcaNegocio.cs" />
     <Compile Include="Business\VoucherNegocio.cs" />
     <Compile Include="Controllers\ArticuloController.cs" />
-    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ImagenDtoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +173,7 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Imagen.cs" />
+    <Compile Include="Models\ImagenDto.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Voucher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
