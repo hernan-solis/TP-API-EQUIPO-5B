@@ -22,9 +22,9 @@ namespace Business
         public AccesoDatos() //constructor 
         {
             //ruta para conectarse a la BD de Vale
-           //conexion = new SqlConnection ("server=(localdb)\\MSSQLLocalDB; database=PROMOS_DB; integrated security=true");
+           conexion = new SqlConnection ("server=(localdb)\\MSSQLLocalDB; database=PROMOS_DB; integrated security=true");
 
-           conexion = new SqlConnection ("server=.\\SQLEXPRESS; database=PROMOS_DB; integrated security=true");
+           //conexion = new SqlConnection ("server=.\\SQLEXPRESS; database=PROMOS_DB; integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -61,6 +61,7 @@ namespace Business
             {
                 throw ex;
             }
+            
         }
 
         //nos va a servir para agregar marca y categoria en articulos

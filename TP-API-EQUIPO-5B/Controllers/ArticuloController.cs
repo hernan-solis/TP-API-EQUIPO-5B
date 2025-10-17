@@ -53,8 +53,7 @@ namespace TP_API_EQUIPO_5B.Controllers
                 nuevo.Descripcion = articulo.Descripcion;
                 nuevo.Marca = new Marca { Id = articulo.IdMarca };
                 nuevo.Categoria = new Categoria { Id = articulo.IdCategoria };
-
-                //tengo dudas con esto, a chequear
+                nuevo.Precio = articulo.Precio;
                 nuevo.Imagenes = new List<Imagen>();
 
 
@@ -92,7 +91,7 @@ namespace TP_API_EQUIPO_5B.Controllers
                 nuevo.Descripcion = articulo.Descripcion;
                 nuevo.Marca = new Marca { Id = articulo.IdMarca };
                 nuevo.Categoria = new Categoria { Id = articulo.IdCategoria };
-                //tengo dudas con esto, a chequear
+                nuevo.Precio = articulo.Precio;
                 nuevo.Imagenes = new List<Imagen>();
                 nuevo.Id = id;
 
@@ -111,20 +110,30 @@ namespace TP_API_EQUIPO_5B.Controllers
         }
 
         // DELETE: api/Articulo/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
             try
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
+
+                List<Articulo> listaArticulos = negocio.listar();
+                Articulo articuloExistente = listaArticulos.Find(x => x.Id == id);
+
+
+                if (articuloExistente == null)
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "El articulo no existe.");
+
                 negocio.eliminar(id);
 
+                return Request.CreateResponse(HttpStatusCode.OK, "Articulo eliminado correctamente.");
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Ocurrió un error inesperado.");
             }
-            
+
         }
     }
 }
