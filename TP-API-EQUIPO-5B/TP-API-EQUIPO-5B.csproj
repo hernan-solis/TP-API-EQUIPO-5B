@@ -164,7 +164,7 @@
     <Compile Include="Business\VoucherNegocio.cs" />
     <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImagenDtoController.cs" />
+    <Compile Include="Controllers\ImagenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
